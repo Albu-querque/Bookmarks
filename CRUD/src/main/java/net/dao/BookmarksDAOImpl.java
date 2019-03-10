@@ -35,7 +35,7 @@ public class BookmarksDAOImpl implements BookmarksDAO{
     @Override
     public void removeBookmark(int id){
         Session session = sessionFactory.getCurrentSession();
-        Bookmarks bookmark = (Bookmarks) session.load(Bookmarks.class, id);
+        Bookmarks bookmark = session.load(Bookmarks.class, id);
         if(bookmark != null) {
             session.delete(bookmark);
             logger.info("Запись удалена из БД");
@@ -48,7 +48,7 @@ public class BookmarksDAOImpl implements BookmarksDAO{
     public Bookmarks getBookmarkById(int id) {
         Session session = sessionFactory.getCurrentSession();
         logger.info("Взята запись в БД по id");
-        return (Bookmarks)session.load(Bookmarks.class, id);
+        return session.load(Bookmarks.class, id);
     }
 
     @Override
