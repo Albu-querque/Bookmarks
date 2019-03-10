@@ -26,7 +26,7 @@ public class ControllerBookmarks {
         logger.info("Вызван: listBookmarks");
         model.addAttribute("bookmark", new Bookmarks());
         model.addAttribute("bookmarks", bookmarksService.listBookmarks());
-        return "bookmarks";
+        return "/bookmarks";
     }
 
     /*@RequestMapping(value = "/bookmarks", method = RequestMethod.GET)

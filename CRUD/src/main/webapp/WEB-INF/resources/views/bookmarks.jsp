@@ -12,22 +12,26 @@
     <%@include file="/WEB-INF/css/styles.css"%>
     </style>
 </head>
-<body class="center" style="background: linear-gradient(to right, #fafffb 20%, #bddcff 20%, #bddcff 80%, #fffdf8 80%);">
+<body class="center" style="background: linear-gradient(to top, #FBF2EB, #352A3B);">
     <c:if test="${!empty bookmarks}">
         <table class="tg">
             <caption>Закладки</caption>
-            <th width="150">Название закладки</th>
-            <th width="150">Дата</th>
-            <th width="150">Ссылка на ресурс</th>
-            <th width="150">Описание закладки</th>
-            <th width="150">Удалить закладку</th>
+            <th class="WH">Название закладки</th>
+            <th class="WH">Дата</th>
+            <th class="WH">Ссылка на ресурс</th>
+            <th class="WH">Описание закладки</th>
+            <th class="WH">Удалить закладку</th>
         <c:forEach items="${bookmarks}" var="i">
             <tr>
                 <td>${i.name}</td>
                 <td><fmt:formatDate pattern="dd-MM-yyyy" value="${i.date}" /></td>
                 <td><a href="<c:url value="${i.reference}"/>" target="_blank">Перейти на сайт</a></td>
                 <td>${i.description}</td>
-                <td><form:form action="/remove/${i.id}"><input type="submit" value="Удалить"></form:form></td>
+                <td>
+                    <form:form action="/app/remove/${i.id}">
+                        <input  type="submit" value="Удалить">
+                    </form:form>
+                </td>
             </tr>
         </c:forEach>
         </table>
@@ -37,7 +41,7 @@
     </c:if>
 <br>
 <br>
-<form:form action="/bookmarks/add" modelAttribute="bookmark" id="formAddedBookmarks">
+<form:form action="/app/bookmarks/add" modelAttribute="bookmark" id="formAddedBookmarks">
     <table class="tg">
         <tr>
             <td><form:label path="name">Название закладки</form:label></td>

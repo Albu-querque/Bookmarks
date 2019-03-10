@@ -22,6 +22,6 @@
     <h1 align="center">Hello tany from tomcat</h1>
     <br>
     <br>
-    <a href="/bookmarks">BOOKMARKS</a>
+    <a href="/app/bookmarks">BOOKMARKS</a>
   </body>
 </html>

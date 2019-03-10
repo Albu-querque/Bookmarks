@@ -15,7 +15,7 @@
     <context:component-scan base-package="net"/>
 
     <bean id = "resolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="WEB-INF/resources/view/"/>
+        <property name="prefix" value="WEB-INF/resources/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
     <!-- Connection DB -->
@@ -56,7 +56,6 @@
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
-    <mvc:resources mapping="/resources/**" location="WEB-INF/resources/" />
     <mvc:view-controller path="/" view-name="welcome"/>
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
