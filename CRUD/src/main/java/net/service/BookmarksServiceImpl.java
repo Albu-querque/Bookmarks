@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 public class BookmarksServiceImpl implements BookmarksService{
-    BookmarksDAO bookmarksDAO;
+    private BookmarksDAO bookmarksDAO;
 
     public void setBookmarksDAO(BookmarksDAO bookmarksDAO) {
         this.bookmarksDAO = bookmarksDAO;

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/bm")
 public class ControllerBookmarks {
     private BookmarksService bookmarksService;
     private static final Logger logger = LoggerFactory.getLogger(ControllerBookmarks.class);

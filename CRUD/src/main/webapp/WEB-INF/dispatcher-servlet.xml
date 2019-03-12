@@ -15,7 +15,7 @@
     <context:component-scan base-package="net"/>
 
     <bean id = "resolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="WEB-INF/resources/views/"/>
+        <property name="prefix" value="/WEB-INF/resources/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
@@ -43,6 +43,7 @@
             </props>
         </property>
     </bean>
+
     <!-- Create beans DAO and Service level-->
     <bean id="bookmarksDao" class="net.dao.BookmarksDAOImpl">
         <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>

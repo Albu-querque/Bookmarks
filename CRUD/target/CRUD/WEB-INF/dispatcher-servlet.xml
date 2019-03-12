@@ -43,6 +43,7 @@
             </props>
         </property>
     </bean>
+
     <!-- Create beans DAO and Service level-->
     <bean id="bookmarksDao" class="net.dao.BookmarksDAOImpl">
         <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
