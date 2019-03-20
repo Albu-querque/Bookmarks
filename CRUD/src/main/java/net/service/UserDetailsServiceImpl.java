@@ -1,8 +1,9 @@
 package net.service;
 
-/*
+/**
+ *
 * Implementation {@link org.springframework.security.core.userdetails.UserDetailsService} interface.
-*
+ *
 * */
 
 import net.dao.UserDAO;

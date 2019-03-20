@@ -1,13 +1,11 @@
 package net.model;
 
-/*
+/**
 * Simple javaBean object that represents role of {@link User}
 *
 * @author Albuquerque
 * @version 1.0
 * */
-
-import org.springframework.security.core.userdetails.User;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -16,7 +14,7 @@ import java.util.Set;
 @Table(name = "roles")
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 

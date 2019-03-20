@@ -4,10 +4,7 @@ import net.dao.BookmarksDAO;
 import net.model.Bookmarks;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 @Service

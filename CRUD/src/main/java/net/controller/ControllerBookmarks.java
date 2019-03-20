@@ -1,5 +1,9 @@
 package net.controller;
 
+/**
+* Controller for {@link net.model.Bookmarks}
+* */
+
 import net.model.Bookmarks;
 import net.service.BookmarksService;
 import org.slf4j.Logger;
@@ -30,15 +34,6 @@ public class ControllerBookmarks {
         return "/bookmarks";
     }
 
-    /*@RequestMapping(value = "/bookmarks", method = RequestMethod.GET)
-    public ModelAndView d() {
-        ModelAndView model = new ModelAndView();
-        model.addObject("bookmark", new Bookmarks());
-        model.addObject("bookmarks", bookmarksService.listBookmarks());
-        model.setViewName("bookmarks");
-        return model;
-    }*/
-
     @RequestMapping(value = "/bookmarks/add", method = RequestMethod.POST)
     public String addBookmark(@ModelAttribute(value = "bookmark") Bookmarks bookmark) {
         logger.info("Вызван: addBookmark");
@@ -47,14 +42,14 @@ public class ControllerBookmarks {
         else
             bookmarksService.updateBookmark(bookmark);
 
-        return "redirect:/bookmarks";
+        return "redirect:/bm/bookmarks";
     }
 
     @RequestMapping(value = "/remove/{id}")
     public String remove(@PathVariable("id") int id) {
         logger.info("Вызван: remove");
         bookmarksService.removeBookmark(id);
-        return "redirect:/bookmarks";
+        return "redirect:/bm/bookmarks";
     }
 
 }

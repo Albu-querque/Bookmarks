@@ -1,12 +1,11 @@
 package net.validator;
 
-/*
-*
+/**
+ *
 * Validator for {@link net.model.User} class,
-* implements {@link Validator} interface.
-*
+* implements {@link org.springframework.validation.Validator} interface.
+ *
 * */
-
 
 import net.model.User;
 import net.service.UserService;

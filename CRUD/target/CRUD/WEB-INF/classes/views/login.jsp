@@ -9,35 +9,48 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Log in with your account</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        <%@include file="/WEB-INF/resources/css/common.css"%>
+    </style>
+
 </head>
+
 <body>
-    <c:url value="try_login" var="login_form_url"/>
 
-    <c:if test="${not empty error}">
-        <div class="alert alert-error" style="border:2px solid #e9322d;background: #eed3d7;">
-                ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+<div class="container">
+
+    <form method="POST" action="${contextPath}/login" class="form-signin">
+        <h2 class="form-heading text-center">Log in</h2>
+
+        <div class="form-group ${error != null ? 'has-error' : ''}">
+            <span>${message}</span>
+            <input name="username" type="text" class="form-control" placeholder="Username"
+                   autofocus="true"/>
+            <input name="password" type="password" class="form-control" placeholder="Password"/>
+            <span>${error}</span>
+
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <button class="btn btn-lg btn-success btn-block" type="submit">Log In</button>
+            <h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>
         </div>
-    </c:if>
 
-    <form action="${login_form_url}"/>">
-        <table>
-            <tr>
-                <td>Login</td>
-                <td><input type="text" name = "username"></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" name = "password"></td>
-            </tr>
-            <tr>
-                <td colspan = 2>
-                    <input type = "submit" value="Login"/>
-                </td>
-            </tr>
-        </table>
     </form>
+
+</div>
+
 </body>
 </html>

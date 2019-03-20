@@ -19,6 +19,14 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>classpath:validation</value>
+            </list>
+        </property>
+    </bean>
+
     <!-- Connection DB -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -59,6 +67,7 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
+    <mvc:resources mapping="/resources/**" location="resources/"/>
     <mvc:view-controller path="/" view-name="welcome"/>
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
