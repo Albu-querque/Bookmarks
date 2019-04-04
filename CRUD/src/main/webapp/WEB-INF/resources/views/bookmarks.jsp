@@ -11,7 +11,9 @@
 <head>
     <title>Закладки</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
     <style>
         <%@include file="/WEB-INF/resources/css/styles.css"%>
         <%@include file="/WEB-INF/resources/css/common.css"%>
@@ -22,7 +24,9 @@
     <form id="logoutForm" method="post" action="${contextPath}/logout">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
-    <h2>Пользователь - ${pageContext.request.userPrincipal.name} | <button class="btn btn-danger" onclick="document.forms['logoutForm'].submit()">Выйти</button>
+    <h2>
+        Пользователь - ${pageContext.request.userPrincipal.name} |
+        <button class="btn btn-danger" onclick="document.forms['logoutForm'].submit()">Выйти</button>
     </h2>
 </c:if>
     <c:if test="${!empty bookmarks}">

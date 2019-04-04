@@ -12,12 +12,15 @@
         <intercept-url pattern="/welcome" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
         <intercept-url pattern="/bm/bookmarks" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
         <intercept-url pattern="/bm/bookmarks/add" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
-        <intercept-url pattern="/bm/bookmarks/remove" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/us/usersList/**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/bm/bookmarks/remove/*" access="hasRole('ROLE_ADMIN')"/>
 
         <form-login login-page="/login" default-target-url="/welcome" authentication-failure-url="/login?error"
                     username-parameter="username" password-parameter="password"/>
 
         <logout logout-success-url="/login?logout"/>
+
+
     </http>
 
     <authentication-manager alias="authenticationManager">
@@ -31,6 +34,5 @@
     <beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <beans:constructor-arg name="strength" value="11"/>
     </beans:bean>
-
 
 </beans:beans>

@@ -6,6 +6,7 @@ package net.controller;
 
 import net.model.Bookmarks;
 import net.service.BookmarksService;
+import net.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/bm")
 public class ControllerBookmarks {
     private BookmarksService bookmarksService;
+
     private static final Logger logger = LoggerFactory.getLogger(ControllerBookmarks.class);
 
     @Autowired
@@ -51,5 +53,4 @@ public class ControllerBookmarks {
         bookmarksService.removeBookmark(id);
         return "redirect:/bm/bookmarks";
     }
-
 }

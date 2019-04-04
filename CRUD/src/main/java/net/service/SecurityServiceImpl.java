@@ -1,11 +1,9 @@
 package net.service;
-
-/*
+/**
 *
-* Implementation of {@link SecurityService} interface.
+* Implementation of {@link net.service.SecurityService} interface.
 *
 * */
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +17,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class SecurityServiceImpl implements SecurityService {
 
-    /*ДОБАВИТЬ ЛОГГИРОВАНИЕ В ОТДЕЛЬНЫЙ ФАЙЛ*/
     private static final Logger logger = LoggerFactory.getLogger(SecurityServiceImpl.class);
 
     @Autowired
@@ -31,8 +28,10 @@ public class SecurityServiceImpl implements SecurityService {
     @Override
     public String findLoggedUsername() {
         Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
-        if(userDetails instanceof UserDetails)
+        if(userDetails instanceof UserDetails) {
+            logger.info("Поиск залогиненного пользователя.");
             return ((UserDetails)userDetails).getUsername();
+        }
         return null;
     }
 
