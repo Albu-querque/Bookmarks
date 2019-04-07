@@ -12,6 +12,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -27,7 +28,8 @@ public class SecurityServiceImpl implements SecurityService {
 
     @Override
     public String findLoggedUsername() {
-        Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
+        Object userDetails = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(userDetails.getClass());
         if(userDetails instanceof UserDetails) {
             logger.info("Поиск залогиненного пользователя.");
             return ((UserDetails)userDetails).getUsername();

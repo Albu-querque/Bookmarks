@@ -1,4 +1,4 @@
-<%--
+<%@ page import="org.springframework.ui.Model" %><%--
   Created by IntelliJ IDEA.
   User: albuquerque
   Date: 27.02.19
@@ -29,9 +29,14 @@
         <a  href="<c:url value="/bm/bookmarks"/>"><font size="11">Закладки</font></a>
     </div>
     <br/>
-    <div class="container ch">
-      <a  href="<c:url value="/us/usersList"/>"><font size="11">Список пользователей</font></a>
-    </div>
+
+    <c:forEach items="${roles}" var="i">
+      <c:if test="${i.name.equals('ROLE_ADMIN')}">
+        <div class="container ch">
+          <a  href="<c:url value="/us/usersList"/>"><font size="11">Список пользователей</font></a>
+        </div>
+      </c:if>
+    </c:forEach>
 
     <div class="container ch">
       <c:if test="${pageContext.request.userPrincipal.name != null}">

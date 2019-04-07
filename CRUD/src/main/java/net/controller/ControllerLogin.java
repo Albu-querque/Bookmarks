@@ -1,11 +1,9 @@
 package net.controller;
-
 /**
  *
  * Controller for {@link net.model.User} class
  *
  * */
-
 import net.model.User;
 import net.service.SecurityService;
 import net.service.UserService;
@@ -17,7 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 
 @Controller
 public class ControllerLogin {
@@ -61,6 +58,8 @@ public class ControllerLogin {
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
+        User user = userService.findByUsername(securityService.findLoggedUsername());
+        model.addAttribute("roles", user.getRoles());
         return "welcome";
     }
 }
